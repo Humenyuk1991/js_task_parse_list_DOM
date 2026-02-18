@@ -1,7 +1,12 @@
 'use strict';
 
 function getSalary(element) {
-  return Number(element.dataset.salary);
+  const rawSalary = element.dataset.salary || '';
+
+  const normalized = rawSalary.trim().replace(/[$,\s]/g, '');
+  const salary = Number(normalized);
+
+  return Number.isFinite(salary) ? salary : 0;
 }
 
 function sortList(workerList) {
