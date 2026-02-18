@@ -24,4 +24,11 @@ function getEmployees(workerList) {
     age: Number(item.dataset.age) || 0,
   }));
 }
-export { sortList, getEmployees };
+
+const list = document.querySelector('ul');
+
+if (list) {
+  sortList(list);
+
+  getEmployees(list);
+}
